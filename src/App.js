@@ -2,13 +2,18 @@ import './App.css';
 import Phones from './Phones';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './phones.css';
+import { Container } from 'react-bootstrap';
 
 function App() {
   return (
-    <div class="container phones-container">
+    <Container className="phones-container " style={{ margin: '2em auto' }} >
 
-      <Phones />
-    </div>
+      <div className="row ">
+        <div className="col">
+          <Phones />
+        </div>
+      </div>
+    </Container>
   );
 }
 

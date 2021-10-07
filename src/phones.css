@@ -4,3 +4,18 @@
   border: solid 1px #222;
   border-radius: 25px;
 }
+
+.cell-phone {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.number {
+  text-align: center;
+  font-size: x-large;
+}
+
+.small-buttons {
+  margin: 0 5px;
+}
