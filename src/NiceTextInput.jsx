@@ -5,9 +5,14 @@ import './textInput.css';
 const NiceTextInput = () => {
   const [name, setName] = useState('');
   const [moving, setMoving] = useState(false);
+  const [uppercase, setCase] = useState(false);
 
   const input = (x) => {
-    setName(name + x);
+    if (uppercase) {
+      setName(name + x.toUpperCase());
+    } else {
+      setName(name + x);
+    }
 
     if (!moving) {
       move();
@@ -18,10 +23,17 @@ const NiceTextInput = () => {
     setMoving(true);
     const buttons = document.getElementsByClassName('char-button');
     for (let i = 0; i < buttons.length; i++) {
-      const duration = Math.random() * 5.0 + 5.0;
-      buttons[i].style.setProperty('animation-name', 'move');
-      buttons[i].style.setProperty('animation-duration', duration + 's');
+      const delay = Math.random() * 2.0 + 3.0;
+      setTimeout(() => {
+        const duration = Math.random() * 5.0 + 5.0;
+        buttons[i].style.setProperty('animation-name', 'move');
+        buttons[i].style.setProperty('animation-duration', duration + 's');
+      }, delay * 1000);
     }
+  };
+
+  const shiftClicked = () => {
+    setCase(!uppercase);
   };
 
   const getLetters = () => {
@@ -30,6 +42,22 @@ const NiceTextInput = () => {
     const letters3 = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
     return [letters1, letters2, letters3];
+  };
+
+  const shiftColor = () => {
+    if (uppercase) {
+      return 'success';
+    }
+
+    return 'primary';
+  };
+
+  const backspace = () => {
+    setName(name.slice(0, -1));
+  };
+
+  const space = () => {
+    setName(name + ' ');
   };
 
   return (
@@ -55,6 +83,28 @@ const NiceTextInput = () => {
           </Form.Row>
         );
       })}
+      <div className='center-it'>
+        <Button
+          variant={shiftColor()}
+          onClick={shiftClicked}
+          className='other-button'
+        >
+          Shift
+        </Button>
+        <Button onClick={backspace} className='other-button'>
+          ⬅
+        </Button>
+        <Button onClick={space} className='other-button'>
+          _
+        </Button>
+        <Button
+          variant={shiftColor()}
+          onClick={shiftClicked}
+          className='other-button'
+        >
+          Shift
+        </Button>
+      </div>
     </div>
   );
 };

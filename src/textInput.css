@@ -6,7 +6,17 @@
   animation-timing-function: linear;
 }
 
+.other-button {
+  margin: 0px 5px;
+}
+
 .buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.center-it {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
 }
