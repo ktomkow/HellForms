@@ -9,7 +9,7 @@ const NiceTextInput = () => {
   const input = (x) => {
     setName(name + x);
 
-    if(!moving) {
+    if (!moving) {
       move();
     }
   };
@@ -34,40 +34,27 @@ const NiceTextInput = () => {
 
   return (
     <div>
-      <Form>
-        <Form.Group controlId='formGroupEmail'>
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type='email' placeholder='Enter email' />
-        </Form.Group>
-        <Form.Group controlId='formGroupPassword'>
-          <Form.Label>Password</Form.Label>
-          <Form.Control type='password' placeholder='Password' />
-        </Form.Group>
-        <Form.Group controlId='formGroupPassword'>
-          <Form.Label>First Name</Form.Label>
-          <Form.Control type='text' disabled value={name} />
-        </Form.Group>
-        {getLetters().map((arr, i) => {
-          return (
-            <Form.Row className='buttons' key={i}>
-              {arr.map((x) => {
-                return (
-                  <Button
-                    key={x}
-                    onClick={() => input(x)}
-                    className='char-button'
-                  >
-                    {x}
-                  </Button>
-                );
-              })}
-            </Form.Row>
-          );
-        })}
-        <Button variant='primary' type='submit'>
-          Submit
-        </Button>
-      </Form>
+      <Form.Group controlId='formGroupPassword'>
+        <Form.Label>First Name</Form.Label>
+        <Form.Control type='text' disabled value={name} />
+      </Form.Group>
+      {getLetters().map((arr, i) => {
+        return (
+          <Form.Row className='buttons' key={i}>
+            {arr.map((x) => {
+              return (
+                <Button
+                  key={x}
+                  onClick={() => input(x)}
+                  className='char-button'
+                >
+                  {x}
+                </Button>
+              );
+            })}
+          </Form.Row>
+        );
+      })}
     </div>
   );
 };
