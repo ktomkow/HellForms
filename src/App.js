@@ -1,5 +1,6 @@
 import './App.css';
 import Phones from './Phones';
+import NiceTextInput from './NiceTextInput';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './phones.css';
 import { Container } from 'react-bootstrap';
@@ -10,7 +11,8 @@ function App() {
 
       <div className="row ">
         <div className="col">
-          <Phones />
+          {/* <Phones /> */}
+          <NiceTextInput />
         </div>
       </div>
     </Container>
